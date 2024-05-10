@@ -10,7 +10,7 @@ SRCREV = "${AUTOREV}"
 # pin srcrev for now to have a fixed target
 # release JH7110_VF2_6.1_v5.11.3
 SRCREV:visionfive2 = "18425cfe66cef584b243fba4966d8e0322880c7a"
-SRCREV:star64 = "e4c0928f1e42ed82ab9fa8918bc7094d3c0414d8"
+SRCREV:star64 = "1456c984f15e21e28fb8a9ce96d0ca10e61a71c4"
 
 BRANCH = "branch=visionfive"
 BRANCH:visionfive2 = "nobranch=1"
@@ -55,8 +55,17 @@ SRC_URI:beaglev-starlight-jh7100 = " \
            file://extra.cfg \
 "
 
+SRC_URI:star64 = " \
+           git://github.com/${FORK}/${REPO}.git;protocol=https;${BRANCH} \
+           file://0001-riscv-disable-generation-of-unwind-tables.patch \
+           file://0001-gcc-plugins-Rename-last_stmt-for-GCC-14.patch \
+           file://visionfive2-graphics.cfg \
+           file://modules.cfg \
+"
+
 LINUX_VERSION ?= "6.2.0"
 LINUX_VERSION:jh7110 = "6.1.0"
+LINUX_VERSION:star64 = "5.15.131"
 LINUX_VERSION:beaglev-starlight-jh7100 = "6.4.4"
 LINUX_VERSION_EXTENSION:append:beaglev-starlight-jh7100 = "-starlight"
 
