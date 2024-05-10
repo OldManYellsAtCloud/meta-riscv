@@ -5,4 +5,7 @@ HOMEPAGE ?= "https://github.com/starfive-tech/soft_3rdpart"
 
 IMG_GPU_POWERVR_VERSION = "img-gpu-powervr-bin-1.19.6345021"
 
+# Star64 kernel is currently based on Linux 5.15, not supporting the latest GPU blobs
+IMG_GPU_POWERVR_VERSION:star64 = "img-gpu-powervr-bin-1.17.6210866"
+
 PV ?= "${VISIONFIVE2FW_DATE}"
