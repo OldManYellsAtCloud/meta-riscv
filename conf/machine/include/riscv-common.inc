@@ -23,8 +23,9 @@ WIC_CREATE_EXTRA_ARGS ?= "--no-fstab-update"
 WKS_FILE_DEPENDS ?= " \
     opensbi \
     e2fsprogs-native \
-    bmaptool-native \
+    ${@bb.utils.contains_any("LAYERSERIES_CORENAMES", "nanbield mickledore", "bmap-tools-native", "bmaptool-native", d)} \
 "
+
 IMAGE_FSTYPES += "wic.gz wic.bmap ext4"
 IMAGE_BOOT_FILES ??= " \
     ${KERNEL_IMAGETYPE} \
